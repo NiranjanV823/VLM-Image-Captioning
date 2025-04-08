@@ -39,7 +39,7 @@ pip install git+https://github.com/salaniz/pycocoevalcap.git
 
 ## Usage 
 
-- **Data Preparation**
+- **Data Preparation:**
   Place your street-view images in a dedicated folder
   Create a JSON file (e.g., image_captions.json) with entries formatted as:
   ```js
@@ -64,4 +64,5 @@ pip install git+https://github.com/salaniz/pycocoevalcap.git
   }
   ]
 
+- **Main Code File:** 
 BLIP_Model.ipynb is the main file containing all the codes for this project.
