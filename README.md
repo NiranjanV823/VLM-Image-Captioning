@@ -5,13 +5,8 @@ This project fine-tunes a pretrained BLIP (Bootstrapping Language-Image Pretrain
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Results](#results)
-- [Notes and Future Work](#notes-and-future-work)
-- [Acknowledgements](#acknowledgements)
 
 ## Overview
 
@@ -24,13 +19,6 @@ This project fine-tunes a pretrained BLIP (Bootstrapping Language-Image Pretrain
 - **Evaluation:**  
   We assess performance using loss curves along with external metrics: BLEU, METEOR, and CIDEr.
 
-## Features
-
-- Fine-tuning a state-of-the-art vision-language model (BLIP) on a small, domain-specific dataset.
-- Custom data loader and transformation pipeline using PyTorch.
-- Evaluation of generated captions with BLEU, METEOR, and CIDEr metrics.
-- Visualization of sample predictions on the validation set.
-- Options to freeze specific layers to mitigate overfitting.
 
 ## Installation
 
@@ -41,3 +29,39 @@ This project requires Python 3.7+ along with several libraries. You can install 
 Install the required packages with:
 ```bash
 pip install torch torchvision transformers datasets pillow nltk
+```
+
+Since the project uses the pycocoevalcap library for CIDEr score calculation (which is not available on PyPI), install it directly from GitHub:
+
+```bash
+pip install git+https://github.com/salaniz/pycocoevalcap.git
+```
+
+## Usage 
+
+- **Data Preparation**
+  Place your street-view images in a dedicated folder
+  Create a JSON file (e.g., image_captions.json) with entries formatted as:
+  ```js
+  [
+  {
+    "image": "G0302024.JPG",
+    "captions": [
+      "a photo of a street with a motorcycle parked on the side of the road"
+    ]
+  },
+  {
+    "image": "G0394874.JPG",
+    "captions": [
+      "a motorcycle parked on the side of a road"
+    ]
+  },
+  {
+    "image": "G0488439.JPG",
+    "captions": [
+      "a street in a small town with a motorcycle parked on both sides of the road"
+    ]
+  }
+  ]
+
+BLIP_Model.ipynb is the main file containing all the codes for this project.
